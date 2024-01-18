@@ -1,0 +1,19 @@
+version: "3"
+services:
+  workspace:
+    build:
+      context: ./workspace/docker
+      dockerfile: Dockerfile
+    volumes:
+      - type: bind
+        source: ..
+        target: /workspace
+    tty: true
+    stdin_open: true
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]

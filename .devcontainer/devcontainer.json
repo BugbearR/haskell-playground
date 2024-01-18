@@ -1,0 +1,18 @@
+{
+    "name": "haskell-playground",
+    "dockerComposeFile": ["docker-compose.yml"],
+    "service": "workspace",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "EditorConfig.EditorConfig",
+                "shardulm94.trailing-spaces",
+                "haskell.haskell",
+                "justusadam.language-haskell",
+                "hoovercj.haskell-linter"
+            ]
+        }
+    },
+    "remoteUser": "vscode"
+}
