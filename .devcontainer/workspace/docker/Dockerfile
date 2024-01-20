@@ -22,6 +22,19 @@ RUN apt-get update -y \
     libncurses-dev \
     libncurses5 \
     libtinfo5 \
+    libmagic-dev \
+    pkg-config \
+    libopenblas-dev \
+    liblapack64-dev \
+    libzmq3-dev \
+    libglib2.0-dev \
+    libcairo2-dev \
+    libpangocairo-1.0-0 \
+    libpango1.0-dev \
+    libicu-dev \
+    libtinfo-dev \
+    libgmp-dev \
+    zlib1g-dev \
     && apt-get autoremove -y \
     && apt-get clean \
     && rm -rf /var/cache/apt/* /var/lib/apt/lists/
@@ -33,8 +46,8 @@ USER $USER_ID
 
 RUN /usr/bin/python3 -m pip install ipykernel -U --user --force-reinstall
 RUN curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | BOOTSTRAP_HASKELL_NONINTERACTIVE=1 BOOTSTRAP_HASKELL_MINIMAL=1 sh
-RUN /home/$USER/.ghcup/bin/ghcup install ghc \
-    && /home/$USER/.ghcup/bin/ghcup set ghc
+RUN /home/$USER/.ghcup/bin/ghcup install ghc 9.6.3 \
+    && /home/$USER/.ghcup/bin/ghcup set ghc 9.6.3
 RUN /home/$USER/.ghcup/bin/ghcup install stack \
     && /home/$USER/.ghcup/bin/ghcup set stack
 RUN /home/$USER/.ghcup/bin/ghcup install hls \
@@ -44,7 +57,8 @@ RUN /home/$USER/.ghcup/bin/ghcup install hls \
 RUN echo 'export PATH="$HOME/.ghcup/bin:$PATH"' >> /home/$USER/.bashrc
 
 # RUN curl -sSL https://get.haskellstack.org/ | sh
-# RUN git clone https://github.com/gibiansky/IHaskell \
+# RUN cd /home/$USER \
+#     && git clone https://github.com/gibiansky/IHaskell \
 #     && cd IHaskell \
 #     && pip3 install -r requirements.txt \
 #     && stack install --fast \

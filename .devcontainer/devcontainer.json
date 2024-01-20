@@ -10,7 +10,8 @@
                 "shardulm94.trailing-spaces",
                 "haskell.haskell",
                 "justusadam.language-haskell",
-                "hoovercj.haskell-linter"
+                "hoovercj.haskell-linter",
+                "ms-toolsai.jupyter"
             ]
         }
     },
